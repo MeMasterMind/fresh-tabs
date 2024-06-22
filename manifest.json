@@ -1,17 +1,22 @@
 {
     "update_url": "https://clients2.google.com/service/update2/crx",
     
-      "manifest_version": 2,
+      "manifest_version": 3,
       "name": "fresh tabs by Arpan",
       "description": "Beautifully replaces the new tab page with a fresh, clean, and minimalistic design.",
       "version": "1.0",
-      "permissions": ["bookmarks", "storage", "chrome://favicon/"],
+      "permissions": [
+        "bookmarks",
+        "storage",
+        "favicon"
+      ],
       "chrome_url_overrides": {
         "newtab": "./public/index.html"
       },
       "background": {
-        "scripts": ["src/background.js"],
-        "persistent": false
+        "servce_woker": "src/background.js"
       },
-      "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+      "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+      }
     }
